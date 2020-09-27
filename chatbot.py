@@ -1,7 +1,8 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from chatterbot.trainers import ChatterBotCorpusTrainer
-
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 # Creating ChatBot Instance
 CB = ChatBot('ChatBot')
  # Training with Personal Ques & Ans
