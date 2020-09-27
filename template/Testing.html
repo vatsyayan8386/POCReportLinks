@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demonstration</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <style>
+        .main{display: flex;}
+    </style>
+</head>
+<body>
+  
+    <input name="folder" type="text"></input>
+    <button type="submit">submit</button>
+    <div class="main">
+        <div class="left">
+            <div class="data">
+            </div>
+        </div>
+        
+        <div class="right">
+            <div class="preview">
+                
+            </div>
+            <div class="download">
+                <a id="download" href="javascript::void(0);" target="_blank">download</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        SERVER_NAME = "http://127.0.0.1/";
+        FOLDER_NAME = '';
+        
+        $(document).ready(function(){
+            $('button').on('click', function(){
+               
+                $.ajax({
+                  url: SERVER_NAME+$('input[name="folder"]').val(),
+                  cache: false,
+                  success: function(html){
+                    $(".data").html(html);
+                    $('.data a').addClass('qw');
+                    $('.data a').each(function(i, e){
+                        $(e).attr('data-href', $(e).attr('href'))
+                         $(e).attr('href', 'javascript::void(0)')
+                         $(e).on('click', function(e){
+                            e.preventDefault();
+                            let dhref = $(this).attr('data-href');
+                            FOLDER_NAME =  SERVER_NAME+$('input[name="folder"]').val()
+                            $.ajax({
+                              url: $(this).attr('data-href'),
+                              cache: false,
+                              success: function(html){
+                                
+                                console.log(html)
+                                
+                               html =  html.split('\n')
+                               
+                               console.log(html)
+                               
+                               $(".preview").html('');
+                               for(e in html){
+                                $(".preview").append('<div style="padding:6px 12px;">'+html[e]+"</div>");
+                                }
+                                $('#download').attr('href', FOLDER_NAME+'/'+dhref);
+                              }
+                            });
+                         });
+                    console.log($(e).attr('href'))    
+                    })
+
+                    
+                  }
+                });
+            });
+
+        })
+    </script>
+    
+</body>
+</html>
