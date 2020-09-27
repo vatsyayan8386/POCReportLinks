@@ -4,6 +4,9 @@ from flask import request
 import numpy as np
 import os
 from chatbot import CB
+import spacy
+import en_core_web_md
+nlp = en_core_web_md.load()
 
 from flask_session import Session
 app = Flask(__name__, template_folder='template',static_folder='static')
