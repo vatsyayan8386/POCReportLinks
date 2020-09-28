@@ -59,7 +59,47 @@ def MastercardWellness_password():
 
 @app.route("/MastercardWellness")
 def MastercardWellness():
-    return render_template("MastercardWellness.html")
+    return render_template("MastercardWellness.html")	
+	
+@app.route("/StandardTRSUtilization_password")
+def MastercardWellness_password():
+    return render_template("StandardTRSUtilization_password.html")
+
+@app.route("/StandardTRSUtilization")
+def MastercardWellness():
+    return render_template("StandardTRSUtilization.html")	
+	
+@app.route("/StandardWellnessCoaching_password")
+def MastercardWellness_password():
+    return render_template("StandardWellnessCoaching_password.html")
+
+@app.route("/StandardWellnessCoaching")
+def MastercardWellness():
+    return render_template("StandardWellnessCoaching.html")
+	
+@app.route("/StandardCaseAudit_password")
+def MastercardWellness_password():
+    return render_template("StandardCaseAudit_password.html")
+
+@app.route("/StandardCaseAudit")
+def MastercardWellness():
+    return render_template("StandardCaseAudit.html")
+	
+@app.route("/StandardWellnessActivity_password")
+def MastercardWellness_password():
+    return render_template("StandardWellnessActivity_password.html")
+
+@app.route("/StandardWellnessActivity")
+def MastercardWellness():
+    return render_template("StandardWellnessActivity.html")
+	
+@app.route("/StandardReport_password")
+def MastercardWellness_password():
+    return render_template("StandardReport_password.html")
+
+@app.route("/StandardReport")
+def MastercardWellness():
+    return render_template("StandardReport.html")
 
 @app.route("/chatbot")
 def chatbot():
